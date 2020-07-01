@@ -13,6 +13,8 @@
   </head>
   <body>
     <h1>welcome to school admin</h1>
+    <!-- our script -->
+    <script>
       var Airtable = require('airtable');
       console.log(Airtable)
       var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
@@ -21,8 +23,6 @@
         if (err) { console.error(err); return; }
         console.log('Retrieved', record.id);
       });
-    <script>
-      // code
     </script>
   </body>
 </html>
