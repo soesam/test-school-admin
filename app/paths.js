@@ -1,35 +1,34 @@
-const load = (el, path) => {
-  let xhr = new XMLHttpRequest()
-
-  xhr.onreadystatechange = () => {
-    if (this.readystate === 4 && this.status === 200) {
-      el.innerHTML = xhr.responseText
+function load(el, path) {
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       el.innerHTML = xhttp.responseText;
     }
-  }
-
-  xhr.open('GET', path, true)
-  xhr.send()
+}
+xhttp.open('GET', path, true)
+xhttp.send()
 }
 
 
 
-const paths = {
+paths = {
   'root': '/views/test.html',
-  'test': '/views/test.html'
+  'test': '/views/test.html',
+  'say-hello': '/views/hello.html'
 }
 
 
 
-document.body.innerHTML += '<div class="root"></div>'
 const root = document.querySelector('.root')
 
 
 
-const update = () => {
-  load(root, paths[window.location.hash.slice('/#/')[1] || 'root'])
+function update() {
+  load(root, paths[window.location.hash.slice(2)] || paths['root'])
 }
 
 
 
 window.onhashchange = update
-window.onload = update
+update()
