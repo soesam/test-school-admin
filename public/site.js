@@ -1,34 +1,27 @@
-function load(el, path) {
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-       el.innerHTML = xhttp.responseText;
-    }
-}
-xhttp.open('GET', path, true)
-xhttp.send()
+const name = 'school admin'
+const view = document.querySelector('.view')
+
+
+
+const paths = {
+  '@': '/views/test.html'
 }
 
 
 
-paths = {
-  'root': '/views/test.html',
-  'test': '/views/test.html',
-  'say-hello': '/views/hello.html'
+const load = path => {
+  fetch(path)
+  .then(response => response.text())
+  .then(text => view.innerHTML = text)
 }
 
 
 
-const root = document.querySelector('.root')
+const refresh = () =>
+  load(paths[window.location.hash.slice(2)] || paths['@'])
 
 
 
-function update() {
-  load(root, paths[window.location.hash.slice(2)] || paths['root'])
-}
-
-
-
-window.onhashchange = update
-update()
+document.title = name
+window.onhashchange = refresh
+refresh()
