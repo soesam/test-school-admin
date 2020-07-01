@@ -26,6 +26,10 @@
   </head>
   <body>
     <h1>welcome to school admin</h1>
+    <div class="Year_7">
+        <ul>
+        </ul>
+    </div>
     <!-- our script -->
     <script>
         var Airtable = require('airtable');
@@ -40,6 +44,8 @@
 
             records.forEach(function(record) {
                 console.log('Retrieved', record.get('Student first name'));
+                let year7 = document.querySelector(".Year_7 ul")
+                year7.innerHTML += `<li>${record.get('Student first name')}</li>`
             });
 
             // To fetch the next page of records, call `fetchNextPage`.
