@@ -1,23 +1,18 @@
-<html>
-  <head>
-    <h1>Airtable Test</h1>
-    <script src="/modules/airtable.browser.js"/>
-  </head>
-  <body>
-    <script>
-      var Airtable = require('airtable');
-      var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
+<view>
+  <h1>Airtable Test</h1>
+  <script src="/modules/airtable.browser.js"/>
+  <script>
+    var Airtable = require('airtable');
+    var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
 
-      base('Year 7').find('recRnr8p431opXptt', function(err, record) {
-        if (err) { console.error(err); return; }
-        console.log('Retrieved', record.id);
-      });
-    </script>
-
-    <style>
-      h1 {
-        font-size: 24px;
-      }
-    </style>
-  </body>
-</html>
+    base('Year 7').find('recRnr8p431opXptt', function(err, record) {
+      if (err) { console.error(err); return; }
+      console.log('Retrieved', record.id);
+    });
+  </script>
+  <style>
+    h1 {
+      font-size: 24px;
+    }
+  </style>
+</view>
