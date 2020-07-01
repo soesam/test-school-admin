@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/soesam/test-school-admin/issues"
   },
-  "homepage": "https://github.com/soesam/test-school-admin#readme"
+  "homepage": "https://github.com/soesam/test-school-admin#readme",
+  "dependencies": {
+    "airtable": "^0.8.1"
+  }
 }
