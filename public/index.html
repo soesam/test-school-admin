@@ -19,7 +19,7 @@
         console.log(Airtable)
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
 
-        base('Year 7').find('Green Points', function(err, record) {
+        base('Year 7').find("Student first name", function(err, record) {
           if (err) { console.error(err); return; }
           console.log('Retrieved', record.id);
         });
