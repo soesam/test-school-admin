@@ -1,5 +1,5 @@
 const name = 'school admin'
-const view = document.querySelector('.view')
+const view = document.querySelector('body')
 
 
 
