@@ -4,7 +4,8 @@ const view = document.querySelector('.view')
 
 
 const paths = {
-  '@': '/views/test.html'
+  '@': '/views/home.html',
+  'test': '/views/test.html'
 }
 
 
