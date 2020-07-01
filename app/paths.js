@@ -25,6 +25,11 @@ const root = document.querySelector('.root')
 
 
 
-window.onhashchange = () => {
-  load(root, window.location.hash.slice('/#/')[1] || 'root')
+const update = () => {
+  load(root, paths[window.location.hash.slice('/#/')[1] || 'root'])
 }
+
+
+
+window.onhashchange = update
+window.onload = update
