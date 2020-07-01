@@ -18,7 +18,9 @@
         var Airtable = require('airtable');
         console.log(Airtable)
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
-
+        for (let table of base.tables) {
+          output.text(`Table '${table.name}' has id '${table.id}'`)
+        }
         base('Year 7').find("Student first name", function(err, record) {
           if (err) { console.error(err); return; }
           console.log('Retrieved', record.id);
