@@ -1,0 +1,23 @@
+{
+  "name": "test-school-admin",
+  "version": "1.0.0",
+  "description": "An app for school admins.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soesam/test-school-admin.git"
+  },
+  "keywords": [
+    "education",
+    "school"
+  ],
+  "author": "soesam <soesam65@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soesam/test-school-admin/issues"
+  },
+  "homepage": "https://github.com/soesam/test-school-admin#readme"
+}
