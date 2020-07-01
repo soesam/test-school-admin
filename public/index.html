@@ -27,8 +27,10 @@
   <body>
     <h1>welcome to school admin</h1>
     <div class="Year_7">
-        <ul>
-        </ul>
+        <ul class="name"></ul>
+        <ul class="sname"></ul>
+        <ul class="email"></ul>
+        <ul class="gpoints"></ul>
     </div>
     <!-- our script -->
     <script>
@@ -41,11 +43,15 @@
             view: "Grid view"
         }).eachPage(function page(records, fetchNextPage) {
             // This function (`page`) will get called for each page of records.
-
+            let year7name = document.querySelector(".Year_7 ul.name")
+            let year7sname = document.querySelector(".Year_7 ul.sname")
+            let year7email = document.querySelector(".Year_7 ul.email")
+            let year7gpoints = document.querySelector(".Year_7 ul.gpoints")
             records.forEach(function(record) {
-                console.log('Retrieved', record.get('Student first name'));
-                let year7 = document.querySelector(".Year_7 ul")
-                year7.innerHTML += `<li>${record.get('Student first name')}</li>`
+                year7name.innerHTML += `<li>${record.get('Student first name')}</li>`
+                year7sname.innerHTML += `<li>${record.get('Student surname')}</li>`
+                year7email.innerHTML += `<li>${record.get('Student email')}</li>`
+                year7gpoints.innerHTML += `<li>${record.get('Green points')}</li>`
             });
 
             // To fetch the next page of records, call `fetchNextPage`.
@@ -57,5 +63,16 @@
             if (err) { console.error(err); return; }
         });
     </script>
+
+    <style>
+      div {
+        display: flex;
+      }
+
+      ul {
+        font-size: 18px;
+        color: white;
+      }
+    </style>
   </body>
 </html>
