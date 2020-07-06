@@ -64,6 +64,9 @@
       var Airtable = require('airtable');
       var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
 
+      base('Students').update({
+        'Points': 1
+      })
     </<script>
 
     </script>
