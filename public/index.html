@@ -63,13 +63,16 @@
     <script>
       var Airtable = require('airtable');
       var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
-      base('Student').update([
-        {
-          "id": "recRnr8p431opXptt",
-          "fields": {
-            "Points": 450,
-          }
-        },
+      base('Student').replace([
+      {
+        "id": "recRnr8p431opXptt",
+        "fields": {
+          "Last name": "Smith",
+          "Email": "Jsmith@",
+          "Points": 42,
+          "Name": "John"
+        }
+      },
     </<script>
 
     </script>
