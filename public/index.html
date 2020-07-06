@@ -40,7 +40,7 @@
         base('Student').find('recRnr8p431opXptt', function(err, record) {
           if (err) { console.error(err); return; }
           var points = record.get('Points');
-        }
+        })
 
         if (sign === "+") {
           var newPoints = points + 1;
