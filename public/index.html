@@ -36,18 +36,18 @@
       function pointUp(sign) {
         var Airtable = require('airtable');
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
-        var points;
+        var points = { value: 0 };
         base('Student').find('recRnr8p431opXptt', function(err, record) {
           if (err) { console.error(err); return; }
-          points = record.get('Points');
+          points.value = record.get('Points');
           console.log(points)
           console.log("points")
         })
 
         if (sign === "+") {
-          var newPoints = points + 1;
+          var newPoints = points.value + 1;
         } else {
-          var newPoints = points - 1;
+          var newPoints = points.value - 1;
         }
         console.log(newPoints)
         console.log("newPoints")
