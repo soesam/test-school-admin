@@ -28,9 +28,7 @@
         <ul class="sname"></ul>
         <ul class="email"></ul>
         <ul class="gpoints"></ul>
-        <form onsubmit=pointUp(ID) class="id">
-          <input type="number" class="myinput">
-          <input type="submit" value="Add">
+        <form class="id">
         </form>
     </div>
     <!-- our script -->
@@ -88,10 +86,12 @@
                   studentssname.innerHTML += `<li>${record.get('Last name')}</li>`
                   studentsemail.innerHTML += `<li>${record.get('Email')}</li>`
                   studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
-                  studentsid.innerHTML += `<form onsubmit=pointUp(${record.id}) class="id">
-                                             <input type="number" class="myinput">
-                                             <input type="submit" value="Add">
-                                           </form>`
+                  studentsid.innerHTML += `<li>
+                                            <form onsubmit=pointUp(${record.id}) class="id">
+                                               <input type="number" class="myinput">
+                                               <input type="submit" value="Add">
+                                             </form>
+                                           </li>`
               });
 
               fetchNextPage();
