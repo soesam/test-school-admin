@@ -45,9 +45,9 @@
             let studentsemail = document.querySelector(".Students ul.email")
             let studentsgpoints = document.querySelector(".Students ul.gpoints")
             records.forEach(function(record) {
-                studentsname.innerHTML += `<li>${record.get('Student first name')}</li>`
-                studentssname.innerHTML += `<li>${record.get('Student Surname')}</li>`
-                studentsemail.innerHTML += `<li>${record.get('Student Email')}</li>`
+                studentsname.innerHTML += `<li>${record.get('Name')}</li>`
+                studentssname.innerHTML += `<li>${record.get('Surname')}</li>`
+                studentsemail.innerHTML += `<li>${record.get('Email')}</li>`
                 studentsgpoints.innerHTML += `<li>${record.get('Green Points')}</li>`
             });
 
@@ -63,7 +63,7 @@
     <script>
       var Airtable = require('airtable');
       var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
-      
+
     </<script>
 
     </script>
