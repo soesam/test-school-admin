@@ -86,7 +86,7 @@
                   studentsemail.innerHTML += `<li>${record.get('Email')}</li>`
                   studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
                   studentsid.innerHTML += `<li>
-                                            <form onsubmit=pointUp(${record.id}) class="id">
+                                            <form onsubmit=pointUp("${record.id}") class="id">
                                                <input type="number" class="myinput">
                                                <input type="submit" value="Add">
                                              </form>
