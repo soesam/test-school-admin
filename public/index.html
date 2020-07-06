@@ -43,6 +43,7 @@
           if (err) { console.error(err); return; }
           points = record.get('Points');
           let inputElement = document.querySelector('input.myinput')
+          console.log(inputElement)
           let addition = inputElement.value
           var newPoints = points + addition;
           base('Student').update([
