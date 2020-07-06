@@ -34,7 +34,7 @@
         var Airtable = require('airtable');
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
 
-        base('Students').select({
+        base('Student').select({
             // Selecting the first 3 records in Grid view:
             maxRecords: 3,
             view: "Grid view"
@@ -64,7 +64,7 @@
       var Airtable = require('airtable');
       var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
 
-      base('Students').update({
+      base('Student').update({
         'Points': 1
       })
     </<script>
