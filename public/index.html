@@ -57,6 +57,11 @@
             }
           },
           ])
+          base('Student').find('recRnr8p431opXptt', function(err, record) {
+              if (err) { console.error(err); return; }
+              let studentsgpoints = document.querySelector(".Students ul.gpoints")
+              studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
+          });
         }
         base('Student').find('recRnr8p431opXptt', fetch)
       }
