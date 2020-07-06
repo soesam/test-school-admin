@@ -46,9 +46,9 @@
             let studentsgpoints = document.querySelector(".Students ul.gpoints")
             records.forEach(function(record) {
                 studentsname.innerHTML += `<li>${record.get('Name')}</li>`
-                studentssname.innerHTML += `<li>${record.get('Surname')}</li>`
+                studentssname.innerHTML += `<li>${record.get('Last Name')}</li>`
                 studentsemail.innerHTML += `<li>${record.get('Email')}</li>`
-                studentsgpoints.innerHTML += `<li>${record.get('Green Points')}</li>`
+                studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
             });
 
             // To fetch the next page of records, call `fetchNextPage`.
