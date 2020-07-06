@@ -43,7 +43,7 @@
         function fetch(err, record) {
           if (err) { console.error(err); return; }
           points = record.get('Points');
-          let inputElement = document.querySelector('input.myinput')
+          let inputElement = document.querySelector(`input.${key}`)
           let addition = parseInt(inputElement.value)
           var newPoints = points + addition;
           console.log(points)
@@ -90,7 +90,7 @@
                   studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
                   studentsid.innerHTML += `<li>
                                             <form onsubmit=pointUp("${record.id}") class="id">
-                                               <input type="number" class="myinput">
+                                               <input type="number" class="${record.id}">
                                                <input type="submit" value="Add">
                                              </form>
                                            </li>`
