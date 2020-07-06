@@ -40,6 +40,8 @@
         base('Student').find('recRnr8p431opXptt', function(err, record) {
           if (err) { console.error(err); return; }
           var points = record.get('Points');
+          console.log(points)
+          console.log("points")
         })
 
         if (sign === "+") {
@@ -47,6 +49,8 @@
         } else {
           var newPoints = points - 1;
         }
+        console.log(newPoints)
+        console.log("newPoints")
         base('Student').update([
         {
           "id": "recRnr8p431opXptt",
