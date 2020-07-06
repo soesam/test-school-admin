@@ -63,31 +63,6 @@
         var Airtable = require('airtable');
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
 
-        base('Student').select({
-            // Selecting the first 3 records in Grid view:
-            maxRecords: 3,
-            view: "Grid view"
-        }).eachPage(function page(records, fetchNextPage) {
-            // This function (`page`) will get called for each page of records.
-            let studentsname = document.querySelector(".Students ul.name")
-            let studentssname = document.querySelector(".Students ul.sname")
-            let studentsemail = document.querySelector(".Students ul.email")
-            let studentsgpoints = document.querySelector(".Students ul.gpoints")
-            records.forEach(function(record) {
-                studentsname.innerHTML += `<li>${record.get('Name')}</li>`
-                studentssname.innerHTML += `<li>${record.get('Last name')}</li>`
-                studentsemail.innerHTML += `<li>${record.get('Email')}</li>`
-                studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
-            });
-
-            // To fetch the next page of records, call `fetchNextPage`.
-            // If there are more records, `page` will get called again.
-            // If there are no more records, `done` will get called.
-            fetchNextPage();
-
-        }, function done(err) {
-            if (err) { console.error(err); return; }
-        });
         function refresh() {
           base('Student').select({
               maxRecords: 3,
@@ -97,6 +72,10 @@
               let studentssname = document.querySelector(".Students ul.sname")
               let studentsemail = document.querySelector(".Students ul.email")
               let studentsgpoints = document.querySelector(".Students ul.gpoints")
+              studentsname.innerHTML = `<li></li>`
+              studentssname.innerHTML = `<li></li>`
+              studentsemail.innerHTML = `<li></li>`
+              studentsgpoints.innerHTML = `<li></li>`
               records.forEach(function(record) {
                   studentsname.innerHTML += `<li>${record.get('Name')}</li>`
                   studentssname.innerHTML += `<li>${record.get('Last name')}</li>`
@@ -109,6 +88,8 @@
           }, function done(err) {
               if (err) { console.error(err); return; }
           });
+
+          refresh()
         }
     </script>
     <style>
