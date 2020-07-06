@@ -39,11 +39,11 @@
         var Airtable = require('airtable');
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
         var points = 0;
-        let inputElement = document.querySelector('input.input')
-        let addition = inputElement.value
         function fetch(err, record) {
           if (err) { console.error(err); return; }
           points = record.get('Points');
+          let inputElement = document.querySelector('input.input')
+          let addition = inputElement.value
           var newPoints = points + addition;
           base('Student').update([
           {
