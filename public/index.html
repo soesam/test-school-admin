@@ -43,7 +43,6 @@
           if (err) { console.error(err); return; }
           points = record.get('Points');
           let inputElement = document.querySelector('input.myinput')
-          console.log(inputElement)
           let addition = parseInt(inputElement.value)
           var newPoints = points + addition;
           base('Student').update([
@@ -77,6 +76,7 @@
               studentsemail.innerHTML = `<li></li>`
               studentsgpoints.innerHTML = `<li></li>`
               records.forEach(function(record) {
+                  console.log("Refresh")
                   studentsname.innerHTML += `<li>${record.get('Name')}</li>`
                   studentssname.innerHTML += `<li>${record.get('Last name')}</li>`
                   studentsemail.innerHTML += `<li>${record.get('Email')}</li>`
