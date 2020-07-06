@@ -29,7 +29,7 @@
         <ul class="email"></ul>
         <ul class="gpoints"></ul>
         <form onsubmit=pointUp()>
-          <input type="number" className="input">
+          <input type="number" className="myinput">
           <input type="submit" value="Add">
         </form>
     </div>
@@ -42,7 +42,7 @@
         function fetch(err, record) {
           if (err) { console.error(err); return; }
           points = record.get('Points');
-          let inputElement = document.querySelector('input.input')
+          let inputElement = document.querySelector('input.myinput')
           let addition = inputElement.value
           var newPoints = points + addition;
           base('Student').update([
