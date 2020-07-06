@@ -46,7 +46,7 @@
             let studentsgpoints = document.querySelector(".Students ul.gpoints")
             records.forEach(function(record) {
                 studentsname.innerHTML += `<li>${record.get('Name')}</li>`
-                studentssname.innerHTML += `<li>${record.get('Last Name')}</li>`
+                studentssname.innerHTML += `<li>${record.get('Last name')}</li>`
                 studentsemail.innerHTML += `<li>${record.get('Email')}</li>`
                 studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
             });
@@ -63,13 +63,16 @@
     <script>
       var Airtable = require('airtable');
       var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
-
-      base('Student').update({
-        "id": "recRnr8p431opXptt",
-        "fields": {
-          'Points': 1
-        }
-      })
+      base('Student').update([
+        {
+          "id": "recRnr8p431opXptt",
+          "fields": {
+            "Last name": "Smith",
+            "Email": "Jsmith@",
+            "Points": 43,
+            "Name": "John"
+          }
+        },
     </<script>
 
     </script>
