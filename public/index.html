@@ -35,6 +35,9 @@
     </div>
     <!-- our script -->
     <script>
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
       function pointUp(sign) {
         var Airtable = require('airtable');
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
@@ -55,6 +58,7 @@
           ])
         }
         base('Student').find('recRnr8p431opXptt', fetch)
+        await sleep(300)
         refresh()
       }
     </script>
