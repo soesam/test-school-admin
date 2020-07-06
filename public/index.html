@@ -27,9 +27,36 @@
         <ul class="name"></ul>
         <ul class="sname"></ul>
         <ul class="email"></ul>
+        <button onClick= pointUp("-")></button>
         <ul class="gpoints"></ul>
+        <button onClick= pointUp("+")></button>
     </div>
     <!-- our script -->
+    <script>
+      function pointUp(sign) {
+        var Airtable = require('airtable');
+        var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
+
+        base('Student').find('recRnr8p431opXptt', function(err, record) {
+          if (err) { console.error(err); return; }
+          var points = record.get('Points');
+        }
+
+        if (sign === "+") {
+          var newPoints = points + 1;
+        } else {
+          var newPoints = points - 1;
+        }
+        base('Student').update([
+        {
+          "id": "recRnr8p431opXptt",
+          "fields": {
+            "Points": newPoints,
+          }
+        },
+        ])
+      }
+    </script>
     <script>
         var Airtable = require('airtable');
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
@@ -59,21 +86,6 @@
         }, function done(err) {
             if (err) { console.error(err); return; }
         });
-    </script>
-    <script>
-      var Airtable = require('airtable');
-      var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
-      base('Student').update([
-      {
-        "id": "recRnr8p431opXptt",
-        "fields": {
-          "Last name": "Smith",
-          "Email": "Jsmith@",
-          "Points": 450,
-          "Name": "John"
-        }
-      },
-      ])
     </script>
 
     </script>
