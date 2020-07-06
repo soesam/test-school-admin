@@ -54,6 +54,7 @@
             }
           },
           ])
+          refresh()
         }
         base('Student').find('recRnr8p431opXptt', fetch)
       }
@@ -89,11 +90,9 @@
         });
         function refresh() {
           base('Student').select({
-              // Selecting the first 3 records in Grid view:
               maxRecords: 3,
               view: "Grid view"
           }).eachPage(function page(records, fetchNextPage) {
-              // This function (`page`) will get called for each page of records.
               let studentsname = document.querySelector(".Students ul.name")
               let studentssname = document.querySelector(".Students ul.sname")
               let studentsemail = document.querySelector(".Students ul.email")
@@ -105,9 +104,6 @@
                   studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
               });
 
-              // To fetch the next page of records, call `fetchNextPage`.
-              // If there are more records, `page` will get called again.
-              // If there are no more records, `done` will get called.
               fetchNextPage();
 
           }, function done(err) {
