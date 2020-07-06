@@ -42,24 +42,23 @@
           points = record.get('Points');
           console.log(points)
           console.log("points")
-        }
-        console.log(base('Student').find('recRnr8p431opXptt', fetch))
-        console.log("base")
-        if (sign === "+") {
-          var newPoints = points + 1;
-        } else {
-          var newPoints = points - 1;
-        }
-        console.log(newPoints)
-        console.log("newPoints")
-        base('Student').update([
-        {
-          "id": "recRnr8p431opXptt",
-          "fields": {
-            "Points": newPoints,
+          if (sign === "+") {
+            var newPoints = points + 1;
+          } else {
+            var newPoints = points - 1;
           }
-        },
-        ])
+          console.log(newPoints)
+          console.log("newPoints")
+          base('Student').update([
+          {
+            "id": "recRnr8p431opXptt",
+            "fields": {
+              "Points": newPoints,
+            }
+          },
+          ])
+        }
+        base('Student').find('recRnr8p431opXptt', fetch)
       }
     </script>
     <script>
