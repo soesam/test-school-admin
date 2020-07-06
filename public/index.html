@@ -27,9 +27,11 @@
         <ul class="name"></ul>
         <ul class="sname"></ul>
         <ul class="email"></ul>
-        <button onClick= pointUp("-")>-</button>
         <ul class="gpoints"></ul>
-        <button onClick= pointUp("+")>+</button>
+        <form onsubmit=pointUp()>
+          <input type="number" className="input">
+          <input type="submit" value="Add">
+        </form>
     </div>
     <!-- our script -->
     <script>
@@ -37,14 +39,12 @@
         var Airtable = require('airtable');
         var base = new Airtable({apiKey: 'keyLVnvjV4bFHXOaD'}).base('appvLWxrF80mDK8Xq');
         var points = 0;
+        let inputElement = document.querySelector('input.input')
+        let addition = inputElement.value
         function fetch(err, record) {
           if (err) { console.error(err); return; }
           points = record.get('Points');
-          if (sign === "+") {
-            var newPoints = points + 1;
-          } else {
-            var newPoints = points - 1;
-          }
+          var newPoints = points + addition;
           base('Student').update([
           {
             "id": "recRnr8p431opXptt",
@@ -53,11 +53,7 @@
             }
           },
           ])
-          base('Student').find('recRnr8p431opXptt', function(err, record) {
-              if (err) { console.error(err); return; }
-              let studentsgpoints = document.querySelector(".Students ul.gpoints")
-              studentsgpoints.innerHTML = `<li>${record.get('Points')}</li>`
-          });
+          refresh()
         }
         base('Student').find('recRnr8p431opXptt', fetch)
       }
@@ -91,8 +87,33 @@
         }, function done(err) {
             if (err) { console.error(err); return; }
         });
-    </script>
+        function refresh() {
+          base('Student').select({
+              // Selecting the first 3 records in Grid view:
+              maxRecords: 3,
+              view: "Grid view"
+          }).eachPage(function page(records, fetchNextPage) {
+              // This function (`page`) will get called for each page of records.
+              let studentsname = document.querySelector(".Students ul.name")
+              let studentssname = document.querySelector(".Students ul.sname")
+              let studentsemail = document.querySelector(".Students ul.email")
+              let studentsgpoints = document.querySelector(".Students ul.gpoints")
+              records.forEach(function(record) {
+                  studentsname.innerHTML += `<li>${record.get('Name')}</li>`
+                  studentssname.innerHTML += `<li>${record.get('Last name')}</li>`
+                  studentsemail.innerHTML += `<li>${record.get('Email')}</li>`
+                  studentsgpoints.innerHTML += `<li>${record.get('Points')}</li>`
+              });
 
+              // To fetch the next page of records, call `fetchNextPage`.
+              // If there are more records, `page` will get called again.
+              // If there are no more records, `done` will get called.
+              fetchNextPage();
+
+          }, function done(err) {
+              if (err) { console.error(err); return; }
+          });
+        }
     </script>
     <style>
       div {
